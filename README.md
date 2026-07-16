@@ -7,10 +7,10 @@ A Claude Code skill that enforces correct Svelte 4 and Svelte 5 best practices, 
 Add this skill to your Claude Code agent with:
 
 ```bash
-npx skills add <your-github-username>/svelte-best-practices --skill svelte-best-practices --agent claude-code -g
+npx skills add arsyadal/svelte-best-practices --skill svelte-best-practices --agent claude-code -g
 ```
 
-*(Replace `<your-github-username>` with your actual GitHub username)*
+*(Ganti `arsyadal` dengan username GitHub Anda jika Anda memindahkan repositori ini ke akun lain)*
 
 ## Features
 
