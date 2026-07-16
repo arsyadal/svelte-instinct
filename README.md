@@ -12,6 +12,8 @@ npx skills add arsyadal/svelte-instinct --skill svelte-instinct --agent claude-c
 
 ## Features
 
+![Svelte Instinct Demo](demo.png)
+
 - **Automatic Version Detection:** Reads `package.json` or analyzes `.svelte` files to determine whether to apply Svelte 4 or Svelte 5 rules.
 - **Strict Guidelines:** Ensures Svelte 4 uses standard `let` / `export let` / `$:`, while Svelte 5 enforces Runes (`$state`, `$derived`, `$props`, `$effect`), Snippets, and new event handlers (`onclick` instead of `on:click`).
 - **TypeScript & SvelteKit Support:** Provides clear patterns for typing props and receiving data from page load functions.
