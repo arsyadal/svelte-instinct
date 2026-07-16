@@ -10,8 +10,6 @@ Add this skill to your Claude Code agent with:
 npx skills add arsyadal/svelte-instinct --skill svelte-instinct --agent claude-code -g
 ```
 
-*(Ganti `arsyadal` dengan username GitHub Anda jika Anda memindahkan repositori ini ke akun lain)*
-
 ## Features
 
 - **Automatic Version Detection:** Reads `package.json` or analyzes `.svelte` files to determine whether to apply Svelte 4 or Svelte 5 rules.
