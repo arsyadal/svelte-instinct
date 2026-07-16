@@ -24,6 +24,13 @@ With the skill active, Claude Code is guided to use `$state()` and `$derived()` 
 
 ## Features
 
+- **Automatic Version Detection:** Reads `package.json` or analyzes `.svelte` files to determine whether to apply Svelte 4 or Svelte 5 rules.
+- **Strict Guidelines:** Ensures Svelte 4 uses standard `let` / `export let` / `$:`, while Svelte 5 enforces Runes (`$state`, `$derived`, `$props`, `$effect`), Snippets, and new event handlers (`onclick` instead of `on:click`).
+- **TypeScript & SvelteKit Support:** Provides clear patterns for typing props and receiving data from page load functions.
+- **Advanced Core Cases:** Fully supports two-way bindings with `$bindable()`, Svelte 5 lifecycle cleanups inside `$effect()`, and reactive state in `.svelte.js`/`.svelte.ts` files instead of legacy stores.
+
+## Version Override
+
 If your project doesn't have a `package.json` at the workspace root, or you want to explicitly force a specific Svelte version for a file, place one of these comments at the very beginning of the `.svelte` file:
 
 ```html
