@@ -1,8 +1,8 @@
-# Svelte Best Practices Implementation Plan
+# Svelte Instinct Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Create a Claude Code skill (`SKILL.md`) for Svelte best practices, supporting version 4 and 5 with automatic detection, and verify it with a test suite.
+**Goal:** Create a Claude Code skill (`SKILL.md`) for Svelte Instinct, supporting version 4 and 5 with automatic detection, and verify it with a test suite.
 
 **Architecture:** A single `SKILL.md` file containing rules and instructions. A helper Python validation script `scripts/validate.py` will read test directories and verify version detection logic.
 
@@ -18,11 +18,11 @@
 ### Task 1: Create Validation Script & Test Scenarios
 
 **Files:**
-- Create: `svelte-best-practices/scripts/validate.py`
-- Create: `svelte-best-practices/tests/svelte4/package.json`
-- Create: `svelte-best-practices/tests/svelte5/package.json`
-- Create: `svelte-best-practices/tests/fallback-svelte4/App.svelte`
-- Create: `svelte-best-practices/tests/fallback-svelte5/App.svelte`
+- Create: `svelte-instinct/scripts/validate.py`
+- Create: `svelte-instinct/tests/svelte4/package.json`
+- Create: `svelte-instinct/tests/svelte5/package.json`
+- Create: `svelte-instinct/tests/fallback-svelte4/App.svelte`
+- Create: `svelte-instinct/tests/fallback-svelte5/App.svelte`
 
 **Interfaces:**
 - Consumes: None
@@ -38,7 +38,7 @@
 ### Task 2: Write SKILL.md Instructions
 
 **Files:**
-- Create: `svelte-best-practices/SKILL.md`
+- Create: `svelte-instinct/SKILL.md`
 
 **Interfaces:**
 - Consumes: Version detection rules and best practices list.
@@ -56,7 +56,7 @@
 ### Task 3: Final Verification and README
 
 **Files:**
-- Create: `svelte-best-practices/README.md`
+- Create: `svelte-instinct/README.md`
 
 **Interfaces:**
 - Consumes: `SKILL.md`

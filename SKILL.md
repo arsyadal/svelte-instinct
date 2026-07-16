@@ -1,10 +1,10 @@
 ---
-name: svelte-best-practices
+name: svelte-instinct
 description: "Guidelines and rules for writing correct Svelte 4 and Svelte 5 components. Ensures automatic version detection and prevents React/Vue mixups."
 version: "0.1.0"
 ---
 
-# Svelte Best Practices
+# Svelte Instinct
 
 This skill guides the AI to write idiomatic Svelte 4 and Svelte 5 code. It helps you detect the correct Svelte version of a project, write correct syntax, and avoid mixing paradigms with React or Vue.
 

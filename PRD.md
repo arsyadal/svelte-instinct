@@ -1,4 +1,4 @@
-# PRD: Svelte Best Practices Agent Skill
+# PRD: Svelte Instinct Agent Skill
 
 ## 1. Core Objectives
 This skill instructs Claude Code (and other AI agents) to:

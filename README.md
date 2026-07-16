@@ -1,4 +1,4 @@
-# svelte-best-practices
+# svelte-instinct
 
 A Claude Code skill that enforces correct Svelte 4 and Svelte 5 best practices, automatically detects Svelte versions in your codebase, and prevents mixing paradigms with React or Vue.
 
@@ -7,7 +7,7 @@ A Claude Code skill that enforces correct Svelte 4 and Svelte 5 best practices, 
 Add this skill to your Claude Code agent with:
 
 ```bash
-npx skills add arsyadal/svelte-best-practices --skill svelte-best-practices --agent claude-code -g
+npx skills add arsyadal/svelte-instinct --skill svelte-instinct --agent claude-code -g
 ```
 
 *(Ganti `arsyadal` dengan username GitHub Anda jika Anda memindahkan repositori ini ke akun lain)*
