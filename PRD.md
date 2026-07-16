@@ -26,6 +26,9 @@ The skill checks the active project environment using this sequence:
 - **Global State (Stores):** Use `writable`, `readable`, `derived` from `svelte/store`. Subscribe in markup using the `$` prefix (e.g., `$myStore`).
 - **Slots:** Use `<slot />` for children composition.
 - **Events:** Use `on:click={handler}` for DOM events, and `createEventDispatcher` for custom events.
+- **Two-way Bindings:** Use standard prop binding (e.g., `bind:propName={variable}`).
+- **Lifecycle:** Use lifecycle hooks `onMount`, `beforeUpdate`, `afterUpdate`, and `onDestroy` imported from `'svelte'`.
+- **Shared State:** Export stores (`writable`, `readable`, `derived`) from standard `.js` or `.ts` files.
 - **TypeScript:** Annotate inline (`export let name: string;`).
 - **SvelteKit Route Data:** Bind route page data via `export let data;`.
 
@@ -37,5 +40,19 @@ The skill checks the active project environment using this sequence:
 - **Global State:** Prefer standard state objects or runes in shared JS/TS files. Avoid the `$` store prefix in Rune-based components.
 - **Slots/Snippets:** Use snippets `{#snippet children()}...{/snippet}` and the `children` prop. Do not use `<slot />`.
 - **Events:** Use native HTML event attributes `onclick={handler}`. For custom parent events, use function callbacks passed via `$props()` (e.g., `let { onnotify } = $props();`).
+- **Two-way Bindings:** Use `$bindable()` rune inside `$props()` destructuring for reactive properties that sync back to the parent:
+  ```typescript
+  let { value = $bindable() } = $props();
+  ```
+- **Lifecycle:** Do not use `beforeUpdate`, `afterUpdate`, or `onDestroy`.
+  - Use `$effect()` for side effects that run after rendering updates.
+  - Handle cleanup by returning a function from `$effect()`:
+    ```javascript
+    $effect(() => {
+      const interval = setInterval(tick, 1000);
+      return () => clearInterval(interval); // Cleanup (replacing onDestroy)
+    });
+    ```
+- **Shared State:** Share reactive state in `.svelte.js` or `.svelte.ts` files using `$state()` and `$derived()` objects instead of `svelte/store` writable/readable.
 - **TypeScript:** Define types directly on the destructured `$props()` statement.
 - **SvelteKit Route Data:** Bind route page data via `let { data } = $props();`.

@@ -49,6 +49,16 @@ Ensure you follow these syntax rules when Svelte 4 is active:
    - Type props on the export statement: `export let name: string;`.
 8. **SvelteKit route pages:**
    - Bind page data using: `export let data;`.
+9. **Two-Way Bindings:**
+   - In Svelte 4, bind props inside parent components with `bind:propName={variable}`. In child components, directly mutate the prop (`export let value; value = newValue`).
+10. **Lifecycle Hooks:**
+    - Import and use traditional lifecycle hooks from `'svelte'`: `onMount`, `beforeUpdate`, `afterUpdate`, and `onDestroy`.
+11. **Shared State:**
+    - Export stores from `.js` or `.ts` files:
+      ```javascript
+      import { writable } from 'svelte/store';
+      export const countStore = writable(0);
+      ```
 
 ### B. Svelte 5 (Modern Runes Mode)
 
@@ -87,3 +97,31 @@ Ensure you follow these syntax rules when Svelte 5 is active:
      ```
 8. **SvelteKit route pages:**
    - Receive data via the props rune: `let { data } = $props();`.
+9. **Two-Way Bindings ($bindable):**
+   - For variables that sync back to the parent, use the `$bindable()` rune inside `$props()`:
+     ```typescript
+     let { value = $bindable() } = $props();
+     ```
+   - On the parent side, call it using `bind:value={parentVariable}`.
+10. **Lifecycle Hook Changes:**
+    - Do not use `beforeUpdate`, `afterUpdate`, or `onDestroy` hooks in Svelte 5.
+    - Use `$effect()` for post-render side effects.
+    - Handle cleanup (destruction phase) by returning a function from `$effect()`:
+      ```javascript
+      $effect(() => {
+        const listener = () => console.log('scrolled');
+        window.addEventListener('scroll', listener);
+        return () => window.removeEventListener('scroll', listener); // cleanup
+      });
+      ```
+11. **Shared State in JS/TS (.svelte.js/.svelte.ts):**
+    - Avoid `svelte/store` (writable/readable) for new Svelte 5 shared files.
+    - Instead, use `.svelte.js` or `.svelte.ts` files containing `$state` objects or class-based reactive state:
+      ```typescript
+      // store.svelte.ts
+      export const globalState = $state({
+        user: null,
+        theme: 'dark'
+      });
+      ```
+      Import and use `globalState` directly. No `$` prefix subscription is needed.
